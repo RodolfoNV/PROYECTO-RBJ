@@ -4,7 +4,11 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
-app.use(cors());
+app.use(cors({
+    origin: ['http://localhost:5173', 'http://localhost:5174', 'https://69c013f96e22424a12af1458--boisterous-yeot-12efc6.netlify.app'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    credentials: true
+}));
 app.use(express.json());
 
 const pool = mysql.createPool({
